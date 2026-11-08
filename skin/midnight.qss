@@ -1,0 +1,97 @@
+/* Midnight skin for OpenRGB. Palette shared with FanControl:
+   bg #14161B  surface #1C1F26  raised #252932  border #2F3440
+   text #E6E8EC  muted #8C93A3  accent #8B5CF6  accent-hover #A78BFA */
+
+* { color: #E6E8EC; }  /* no font override: OpenRGB draws device icons with its own icon font */
+QWidget { background: #14161B; }
+QDialog, QMainWindow { background: #14161B; }
+
+/* Tabs. Shared look; orientation-specific borders below so rules don't leak between the two. */
+QTabWidget::pane { border: 1px solid #2F3440; border-radius: 8px; background: #1C1F26; top: -1px; }
+QTabBar { background: transparent; }
+QTabBar::tab { background: transparent; color: #8C93A3; border: none; border-radius: 6px; margin: 2px; }
+QTabBar::tab:hover { background: #252932; color: #E6E8EC; }
+QTabBar::tab:selected { background: #252932; color: #E6E8EC; }
+/* Vertical tabs (device lists, settings pages): left accent bar, square left corners so the bar stays straight.
+   Same transparent bar on every tab so content never shifts. */
+QTabBar::tab:left, QTabBar::tab:right { padding: 0 8px; border-left: 3px solid transparent;
+  border-top-left-radius: 0; border-bottom-left-radius: 0; }
+QTabBar::tab:left:selected, QTabBar::tab:right:selected { border-left: 3px solid #8B5CF6; }
+/* Horizontal tabs (Devices / Information / ...): rounded top, square bottom so the underline stays flat. */
+QTabBar::tab:top, QTabBar::tab:bottom { padding: 8px 14px; border-bottom: 2px solid transparent;
+  border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+QTabBar::tab:top:selected, QTabBar::tab:bottom:selected { border-bottom: 2px solid #8B5CF6; }
+
+/* Containers */
+QGroupBox { background: #1C1F26; border: 1px solid #2F3440; border-radius: 8px; margin-top: 14px; padding: 10px; }
+QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 4px; color: #8C93A3; }
+QFrame, QScrollArea, QScrollArea > QWidget > QWidget { background: transparent; border: none; }
+QLabel { background: transparent; }
+
+/* Buttons */
+QPushButton, QToolButton { background: #252932; border: 1px solid #2F3440; border-radius: 6px; padding: 4px 8px; }
+QPushButton:hover, QToolButton:hover { border-color: #8B5CF6; }
+QPushButton:pressed, QToolButton:pressed { background: #8B5CF6; color: #FFFFFF; }
+QPushButton:default { background: #8B5CF6; border-color: #8B5CF6; color: #FFFFFF; }
+QPushButton:disabled { color: #5A6070; border-color: #252932; }
+
+/* Inputs */
+QLineEdit, QSpinBox, QDoubleSpinBox, QComboBox, QPlainTextEdit, QTextEdit {
+  background: #1C1F26; border: 1px solid #2F3440; border-radius: 6px; padding: 4px 8px;
+  selection-background-color: #8B5CF6; selection-color: #FFFFFF; }
+QLineEdit:focus, QSpinBox:focus, QComboBox:focus { border-color: #8B5CF6; }
+QComboBox::drop-down { border: none; width: 22px; }
+QComboBox::down-arrow { image: url(skin:arrow-down.png); width: 10px; height: 6px; }
+QToolButton::menu-button { background: #252932; border: 1px solid #2F3440; border-left: none; border-top-right-radius: 6px; border-bottom-right-radius: 6px; width: 16px; }
+QToolButton::menu-arrow, QToolButton::menu-indicator { image: url(skin:arrow-down.png); width: 10px; height: 6px; }
+QSpinBox::up-button, QSpinBox::down-button, QDoubleSpinBox::up-button, QDoubleSpinBox::down-button { width: 0; border: none; }
+QComboBox QAbstractItemView { background: #1C1F26; border: 1px solid #2F3440; selection-background-color: #8B5CF6; outline: none; }
+QCheckBox, QRadioButton { background: transparent; spacing: 6px; }
+QCheckBox::indicator, QRadioButton::indicator, QAbstractItemView::indicator {
+  width: 14px; height: 14px; border: 1px solid #4A5163; background: #1C1F26; border-radius: 4px; }
+QCheckBox::indicator:hover, QRadioButton::indicator:hover, QAbstractItemView::indicator:hover { border-color: #8B5CF6; }
+QCheckBox::indicator:checked, QAbstractItemView::indicator:checked { background: #8B5CF6; border-color: #8B5CF6; image: url(skin:check.png); }
+QCheckBox::indicator:disabled, QAbstractItemView::indicator:disabled { border-color: #2F3440; background: #181A20; }
+QRadioButton::indicator { border-radius: 8px; }
+QRadioButton::indicator:checked { border-color: #8B5CF6;
+  background: qradialgradient(cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 #FFFFFF, stop:0.3 #FFFFFF, stop:0.4 #8B5CF6, stop:1 #8B5CF6); }
+
+/* Sliders (brightness, speed, HSV) */
+QSlider::groove:horizontal { height: 4px; background: #2F3440; border-radius: 2px; }
+QSlider::sub-page:horizontal { background: #8B5CF6; border-radius: 2px; }
+QSlider::handle:horizontal { background: #E6E8EC; width: 14px; height: 14px; margin: -5px 0; border-radius: 7px; }
+QSlider::handle:horizontal:hover { background: #A78BFA; }
+
+/* Lists / tables (devices, profiles, plugins, supported devices) */
+QListView, QTreeView, QTableView, QListWidget, QTableWidget {
+  background: #1C1F26; alternate-background-color: #20232B; border: 1px solid #2F3440; border-radius: 6px;
+  gridline-color: #2F3440; selection-background-color: #8B5CF6; selection-color: #FFFFFF; outline: none; }
+QHeaderView::section { background: #252932; color: #8C93A3; border: none; border-bottom: 1px solid #2F3440; padding: 6px; }
+
+/* Scrollbars */
+QScrollBar:vertical { background: transparent; width: 10px; margin: 2px; }
+QScrollBar::handle:vertical { background: #2F3440; border-radius: 4px; min-height: 30px; }
+QScrollBar:horizontal { background: transparent; height: 10px; margin: 2px; }
+QScrollBar::handle:horizontal { background: #2F3440; border-radius: 4px; min-width: 30px; }
+QScrollBar::handle:hover { background: #8B5CF6; }
+QScrollBar::add-line, QScrollBar::sub-line, QScrollBar::add-page, QScrollBar::sub-page { background: none; border: none; width: 0; height: 0; }
+
+/* Menus + tooltips (tray menu included) */
+QMenu { background: #1C1F26; border: 1px solid #2F3440; border-radius: 6px; padding: 4px; }
+QMenu::item { padding: 6px 20px; border-radius: 4px; background: transparent; }
+QMenu::item:selected { background: #8B5CF6; color: #FFFFFF; }
+QMenu::separator { height: 1px; background: #2F3440; margin: 4px 8px; }
+QToolTip { background: #252932; color: #E6E8EC; border: 1px solid #8B5CF6; padding: 4px; }
+
+/* Custom-painted OpenRGB widgets keep their own drawing */
+ColorWheel, Swatches, DeviceView, QSlider, QTooltipedSlider { background: transparent; border: none; }
+/* Menu buttons (plugin selectors) */
+QPushButton::menu-indicator { image: url(skin:arrow-down.png); width: 8px; height: 5px; subcontrol-origin: padding; subcontrol-position: right center; right: -4px; }
+
+/* Toggle buttons (Hardware Sync: add-to-measure, % fill, reverse, start/stop): show the ON state */
+QPushButton:checked, QToolButton:checked { background: #8B5CF6; border-color: #8B5CF6; color: #FFFFFF; }
+QPushButton:checked:hover, QToolButton:checked:hover { background: #A78BFA; border-color: #A78BFA; }
+/* Small fixed-size icon buttons: no padding, or the glyph gets clipped */
+ColorStop QPushButton, ControllerZoneListItemWidget QToolButton, TabHeader QToolButton, MeasureEntry QToolButton { padding: 0; }
+/* Device list: OpenRGB fixes the icon box at 24px, so on two-line names it sits high. Let it stretch to the row (it's AlignCenter). */
+TabLabel QLabel#icon { max-height: 200px; }
