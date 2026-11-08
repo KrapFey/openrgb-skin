@@ -13,7 +13,7 @@ Works with **OpenRGB 1.1 on Windows x64**.
 
 ## Install
 
-1. Download `openrgb-skin-<version>-openrgb-1.1-win64.zip` from Releases and unzip it.
+1. Download `openrgb-skin-<version>-openrgb-1.1-win64.zip` from [Releases](https://github.com/KrapFey/openrgb-skin/releases) and unzip it.
 2. Exit OpenRGB (tray icon > Exit).
 3. In the unzipped folder run:
    ```powershell
@@ -52,8 +52,6 @@ cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_PREFIX_PATH=C:\Qt-
 cmake --build build --config Release                    # plugin DLL
 cmake --build build --config Release --target package   # release zip
 ```
-
-Optional: `-DPLUGIN_URL=https://github.com/<you>/openrgb-skin` to show the project link in OpenRGB.
 
 ## License
 
